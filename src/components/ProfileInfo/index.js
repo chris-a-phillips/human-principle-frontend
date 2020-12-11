@@ -1,10 +1,11 @@
 import React from 'react';
+import { ProfileInfoWrapper } from './ProfileInfoElements';
 
 const ProfileInfo = () => {
     return (
-        <div>
-            Profile Info
-        </div>
+        <ProfileInfoWrapper>
+            ProfileInfo
+        </ProfileInfoWrapper>
     );
 };
 

@@ -1,10 +1,11 @@
 import React from 'react';
+import { HistoryWrapper } from './HistoryElements';
 
 const History = () => {
     return (
-        <div>
+        <HistoryWrapper>
             History
-        </div>
+        </HistoryWrapper>
     );
 };
 

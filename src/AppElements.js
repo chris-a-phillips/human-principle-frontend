@@ -12,6 +12,9 @@ export const Header = styled.header`
 	padding: 2rem;
 `;
 
+export const NavItem = styled.a`
+
+`
 export const Main = styled.main`
 	background-color: peachpuff;
 `;
