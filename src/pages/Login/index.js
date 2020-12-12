@@ -5,22 +5,22 @@ import { LoginForm, LoginPage } from './LoginElements';
 const Login = ({ user, setUser, token, SetToken }) => {
 	const [test, setTest] = useState();
 	const [num, setNum] = useState(0);
-	const url = 'http://localhost:8000/members';
+	const url = 'http://localhost:8000/members/';
 
 	const handleClick = () => {
 		setUser(`Button clicked ${num} times!`)
 		console.log('Button Clicked')
 		setNum(num + 1)
 
-		// axios({
-		// 	method: 'get',
-		// 	url: url,
-		// 	// data: setTest(data)
-		// 	// headers: {'': ''}
-		// })
-		// .then(function(response) {
-		// 	console.log(response.data)
-		// })
+		axios({
+			method: 'get',
+			url: url,
+			// data: setTest(data)
+			// headers: {'': ''}
+		})
+		.then(function(response) {
+			console.log(response)
+		})
 	}
 
 
