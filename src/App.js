@@ -1,5 +1,5 @@
 import './App.css';
-import { React } from 'react';
+import { React, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Questions from './pages/Questions';
@@ -7,6 +7,9 @@ import { Footer, Header, Main, NavItem, PageWrapper } from './AppElements';
 import Profile from './pages/Profile';
 
 function App() {
+	const [user, setUser] = useState({})
+	const [token, setToken] = useState(null)
+
 	return (
 		<div className='App'>
 			<PageWrapper>
