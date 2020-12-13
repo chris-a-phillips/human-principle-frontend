@@ -1,5 +1,6 @@
 import './App.css';
 import { React, useState } from 'react';
+import { UserContext } from './components/UserContext';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Questions from './pages/Questions';
@@ -7,11 +8,13 @@ import { Footer, Header, Main, NavLink, PageWrapper } from './AppElements';
 import Profile from './pages/Profile';
 
 function App() {
-	const [user, setUser] = useState('');
-	const [token, setToken] = useState(null);
+	const [user, setUser] = useState("");
+	const [token, setToken] = useState("");
 
 	return (
 		<div className='App'>
+			<UserContext.Provider value={user}>
+
 			<PageWrapper>
 				<Router>
 					<Header>
@@ -32,31 +35,32 @@ function App() {
 								exact
 								render={() => (
 									<Login
-										user={user}
-										setUser={setUser}
-										token={token}
-										setToken={setToken}
+									user={user}
+									setUser={setUser}
+									token={token}
+									setToken={setToken}
 									/>
-								)}
-							/>
+									)}
+									/>
 							<Route
 								path='/profile'
 								exact
 								render={() => (
 									<Profile
-										user={user}
-										setUser={setUser}
-										token={token}
-										setToken={setToken}
+									user={user}
+									setUser={setUser}
+									token={token}
+									setToken={setToken}
 									/>
-								)}
-							/>
+									)}
+									/>
 							<Route path='/questions' component={Questions} />
 						</Switch>
 					</Main>
 					<Footer></Footer>
 				</Router>
 			</PageWrapper>
+									</UserContext.Provider>
 		</div>
 	);
 }

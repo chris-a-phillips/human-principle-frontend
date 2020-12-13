@@ -12,4 +12,16 @@ export const LoginForm = styled.form`
     background-color: slategray;
     height: 80%;
     width: 70%;
+    text-align: center;
 `
+
+export const FormLabel = styled.label`
+    display: block;
+`
+
+export const FormInput = styled.input`
+display: block;
+margin: auto;
+`
+
+export const SubmitButton = styled.button``

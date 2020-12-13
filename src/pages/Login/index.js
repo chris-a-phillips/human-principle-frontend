@@ -1,22 +1,29 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios'
-import { LoginForm, LoginPage } from './LoginElements';
+import { FormInput, FormLabel, LoginForm, LoginPage, SubmitButton } from './LoginElements';
 
 const Login = ({ user, setUser, token, SetToken }) => {
-	const [test, setTest] = useState();
-	const [num, setNum] = useState(0);
-	const url = 'http://localhost:8000/members/';
+	const [credentials, setCredentials] = useState({
+		username: '',
+		email: '',
+		password: '',
+		re_password: '',
+	});
+	const url = 'http://localhost:8000/users/';
 
-	const handleClick = () => {
-		setUser(`Button clicked ${num} times!`)
+	const handleChange = (event) => {
+		event.preventDefault();
+		setCredentials({ ...credentials, [event.target.name]: event.target.value })
+		console.log(credentials)
+	}
+
+	const handleSubmit = (event) => {
 		console.log('Button Clicked')
-		setNum(num + 1)
-
+		event.preventDefault()
 		axios({
-			method: 'get',
+			method: 'post',
 			url: url,
-			// data: setTest(data)
-			// headers: {'': ''}
+			data: credentials
 		})
 		.then(function(response) {
 			console.log(response)
@@ -27,16 +34,41 @@ const Login = ({ user, setUser, token, SetToken }) => {
 
 	return (
 		<LoginPage>
-			<LoginForm>
-		<div>
-			<h1>Login</h1>
-		</div>
+			<div>
+				<h1>Login</h1>
+				{user}
+			</div>
+			<LoginForm onSubmit={handleSubmit}>
+				<FormLabel htmlFor='username'>Username</FormLabel>
+				<FormInput
+					type='text'
+					name='username'
+					placeholder='Enter Username'
+					value={credentials.username}
+					onChange={handleChange}></FormInput>
+				<FormLabel htmlFor='email'>Email</FormLabel>
+				<FormInput
+					type='email'
+					name='email'
+					placeholder='name@email.com'
+					value={credentials.email}
+					onChange={handleChange}></FormInput>
+				<FormLabel htmlFor='password'>Password</FormLabel>
+				<FormInput
+					type='password'
+					name='password'
+					placeholder='Enter Password'
+					value={credentials.password}
+					onChange={handleChange}></FormInput>
+				<FormLabel htmlFor='retypePassword'>Retype Password</FormLabel>
+				<FormInput
+					type='password'
+					name='re_password'
+					placeholder='Re-Enter Password'
+					value={credentials.re_password}
+					onChange={handleChange}></FormInput>
+				<SubmitButton>Register</SubmitButton>
 			</LoginForm>
-		{user}
-		{test}
-		<button onClick={handleClick}>
-			Click Me
-		</button>
 		</LoginPage>
 	);
 };
