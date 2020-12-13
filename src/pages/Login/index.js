@@ -1,15 +1,16 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios'
 import { FormInput, FormLabel, LoginForm, LoginPage, SubmitButton } from './LoginElements';
 
-const Login = ({ user, setUser, token, SetToken }) => {
+const Login = ({ user, setUser, token, setToken }) => {
 	const [credentials, setCredentials] = useState({
 		username: '',
 		email: '',
 		password: '',
 		re_password: '',
 	});
-	const url = 'http://localhost:8000/users/';
+	// const signUpURL = 'http://localhost:8000/users/';
+	const signInURL = 'http://localhost:8000/token/login';
 
 	const handleChange = (event) => {
 		event.preventDefault();
@@ -22,11 +23,13 @@ const Login = ({ user, setUser, token, SetToken }) => {
 		event.preventDefault()
 		axios({
 			method: 'post',
-			url: url,
+			url: signInURL,
 			data: credentials
 		})
-		.then(function(response) {
-			console.log(response)
+		.then((res) => {
+			console.log(res)
+			setToken(res.data.auth_token)
+			setUser(credentials.email)
 		})
 	}
 
