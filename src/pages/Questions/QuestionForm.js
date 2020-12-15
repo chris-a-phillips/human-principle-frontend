@@ -1,11 +1,12 @@
 import { React, useState } from 'react';
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { FormContainer, FormQuestion, FormQuestionList, FormSubmit, FormLabel, FormInput } from './QuestionsElements.js';
 
 const QuestionForm = ({ token, formType, header, description, q1, q2, q3, q4, q5, q6, q7, }) => {
-     // const [submitted, setSubmitted] = useState(false)
+     const [redirect, setRedirect] = useState(false)
 	const [response, setResponse] = useState({
-		name: 2,
+		username: 2,
 		questionnaire_type: formType,
 		question_one: 0,
 		question_two: 0,
@@ -35,9 +36,13 @@ const QuestionForm = ({ token, formType, header, description, q1, q2, q3, q4, q5
                data: response,
           }).then((res) => {
                console.log(res);
-               // setSubmitted(true)
+               setRedirect(true)
           });
      };
+
+     if (redirect) {
+          return <Redirect to='/profile' />;
+     }
 
 	return (
 		<FormContainer onSubmit={handleSubmit}>

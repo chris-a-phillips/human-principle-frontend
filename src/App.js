@@ -34,9 +34,7 @@ function App() {
 									exact
 									render={() => (
 										<Login
-											user={user}
 											setUser={setUser}
-											token={token}
 											setToken={setToken}
 										/>
 									)}

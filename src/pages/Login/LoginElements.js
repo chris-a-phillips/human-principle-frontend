@@ -25,3 +25,11 @@ margin: auto;
 `
 
 export const SubmitButton = styled.button``
+
+export const ErrorMessage = styled.h1`
+    color: red;
+`
+
+export const LoginPageButton = styled.button`
+
+`
