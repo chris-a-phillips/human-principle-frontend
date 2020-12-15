@@ -1,31 +1,72 @@
 import './App.css';
-import { React } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { React, useState } from 'react';
+import { UserContext } from './components/UserContext';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Questions from './pages/Questions';
-import { Footer, Header, Main, NavItem, PageWrapper } from './AppElements';
+import { Footer, Header, Main, NavLink, PageWrapper } from './AppElements';
 import Profile from './pages/Profile';
 
 function App() {
+	const [user, setUser] = useState('');
+	const [token, setToken] = useState('');
+
 	return (
 		<div className='App'>
-			<PageWrapper>
-				<Header>
-					<NavItem href='/'>Login</NavItem>
-					<NavItem href='/profile'>Profile</NavItem>
-					<NavItem href='/questions'>Questions</NavItem>
-				</Header>
-				<Main>
+			<UserContext.Provider value={token}>
+				<PageWrapper>
 					<Router>
-						<Switch>
-							<Route path='/profile' component={Profile} />
-							<Route path='/questions' component={Questions} />
-							<Route path='/' exact component={Login} />
-						</Switch>
+						<Header>
+							<NavLink>
+								<Link to='/'>Login</Link>
+							</NavLink>
+							<NavLink>
+								<Link to='/profile'>Profile</Link>
+							</NavLink>
+							<NavLink>
+								<Link to='/questions'>Questions</Link>
+							</NavLink>
+						</Header>
+						<Main>
+							<Switch>
+								<Route
+									path='/'
+									exact
+									render={() => (
+										<Login
+											setUser={setUser}
+											setToken={setToken}
+										/>
+									)}
+								/>
+								<Route
+									path='/profile'
+									exact
+									render={() => (
+										<Profile
+											user={user}
+											setUser={setUser}
+											token={token}
+											setToken={setToken}
+										/>
+									)}
+								/>
+								<Route
+									path='/questions'
+									exact
+									render={() => (
+										<Questions
+											user={user}
+											token={token}
+										/>
+									)}
+								/>
+							</Switch>
+						</Main>
+						<Footer></Footer>
 					</Router>
-				</Main>
-				<Footer></Footer>
-			</PageWrapper>
+				</PageWrapper>
+			</UserContext.Provider>
 		</div>
 	);
 }

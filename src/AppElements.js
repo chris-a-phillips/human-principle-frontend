@@ -12,9 +12,13 @@ export const Header = styled.header`
 	padding: 2rem;
 `;
 
-export const NavItem = styled.a`
-
+export const NavLink = styled.h2`
+	text-decoration: none;
+	cursor: pointer;
+	margin: 0 10px;
+	display: inline-block;
 `
+
 export const Main = styled.main`
 	background-color: peachpuff;
 `;
