@@ -5,7 +5,7 @@ import { ProfileWrapper } from './ProfileElements';
 const axios = require('axios');
 
 const Profile = ({ user, token }) => {
-	const [userData, setUserData] = useState(null);
+	const [userData, setUserData] = useState('');
 	const url = 'http://localhost:8000/principles/';
 
 	useEffect(() => {
