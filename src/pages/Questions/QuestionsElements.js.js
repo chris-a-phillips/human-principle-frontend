@@ -3,9 +3,6 @@ import styled from 'styled-components'
 export const QuestionsWrapper = styled.div`
 
 `
-export const FormContainer = styled.form`
-
-`
 
 export const FormHeader = styled.h1``
 
@@ -67,3 +64,21 @@ export const emotionalTemplate = {
 	q6: 'I share my feelings with others',
 	q7: 'Overall I feel happy',
 };
+
+export const FormContainer = styled.form`
+	background-color: slategray;
+	height: 80%;
+	width: 70%;
+	text-align: center;
+`;
+
+export const FormLabel = styled.label`
+	/* display: block; */
+`;
+
+export const FormInput = styled.input`
+	/* display: block; */
+	margin: auto;
+`;
+
+export const SubmitButton = styled.button``;

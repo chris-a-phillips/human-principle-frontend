@@ -12,15 +12,15 @@ const Questions = ({ user, token }) => {
 	const [formType, setFormType] = useState(null)
 
 	const changeMental = () => {
-		setFormType('mental')
+		setFormType('Mental')
 	}
 
 	const changePhysical = () => {
-		setFormType('physical')
+		setFormType('Physical')
 	}
 
 	const changeEmotional = () => {
-		setFormType('emotional')
+		setFormType('Emotional')
 	}
 
 	return (
@@ -28,13 +28,37 @@ const Questions = ({ user, token }) => {
 			Questions
 			{formType}
 			<ButtonWrapper>
-			<FormSwitchButton onClick={changeMental}>Mental</FormSwitchButton>
-			<FormSwitchButton onClick={changePhysical}>Physical</FormSwitchButton>
-			<FormSwitchButton onClick={changeEmotional}>Emotional</FormSwitchButton>
+				<FormSwitchButton onClick={changeMental}>
+					Mental
+				</FormSwitchButton>
+				<FormSwitchButton onClick={changePhysical}>
+					Physical
+				</FormSwitchButton>
+				<FormSwitchButton onClick={changeEmotional}>
+					Emotional
+				</FormSwitchButton>
 			</ButtonWrapper>
-			{formType === 'mental' ? <QuestionForm {...mentalTemplate}/> : null}
-			{formType === 'physical' ? <QuestionForm {...physicalTemplate}/> : null}
-			{formType === 'emotional' ? <QuestionForm {...emotionalTemplate}/> : null}
+			{formType === 'Mental' ? (
+				<QuestionForm
+					token={token}
+					{...mentalTemplate}
+					formType={formType}
+				/>
+			) : null}
+			{formType === 'Physical' ? (
+				<QuestionForm
+					token={token}
+					{...physicalTemplate}
+					formType={formType}
+				/>
+			) : null}
+			{formType === 'Emotional' ? (
+				<QuestionForm
+					token={token}
+					{...emotionalTemplate}
+					formType={formType}
+				/>
+			) : null}
 		</QuestionsWrapper>
 	);
 };
