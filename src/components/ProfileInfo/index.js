@@ -16,9 +16,9 @@ const ProfileInfo = ({ user, token }) => {
     //     })
     // }, [])
 
-    if (test===null) {
-        return null
-    }
+    // if (test===null) {
+    //     return null
+    // }
 
 
     return (

@@ -39,13 +39,25 @@ const Questions = ({ user, token }) => {
 				</FormSwitchButton>
 			</ButtonWrapper>
 			{formType === 'Mental' ? (
-				<QuestionForm token={token} {...mentalTemplate} />
+				<QuestionForm
+					token={token}
+					{...mentalTemplate}
+					formType={formType}
+				/>
 			) : null}
 			{formType === 'Physical' ? (
-				<QuestionForm token={token} {...physicalTemplate} />
+				<QuestionForm
+					token={token}
+					{...physicalTemplate}
+					formType={formType}
+				/>
 			) : null}
 			{formType === 'Emotional' ? (
-				<QuestionForm token={token} {...emotionalTemplate} />
+				<QuestionForm
+					token={token}
+					{...emotionalTemplate}
+					formType={formType}
+				/>
 			) : null}
 		</QuestionsWrapper>
 	);

@@ -9,7 +9,7 @@ const Login = ({ user, setUser, token, setToken }) => {
 		password: '',
 		re_password: '',
 	});
-	// const signUpURL = 'http://localhost:8000/users/';
+	const signUpURL = 'http://localhost:8000/users/';
 	const signInURL = 'http://localhost:8000/token/login';
 
 	const handleChange = (event) => {
@@ -21,6 +21,7 @@ const Login = ({ user, setUser, token, setToken }) => {
 	const handleSubmit = (event) => {
 		console.log('Button Clicked')
 		event.preventDefault()
+		setUser(credentials.email)
 		axios({
 			method: 'post',
 			url: signInURL,
