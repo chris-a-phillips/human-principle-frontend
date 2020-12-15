@@ -27,3 +27,7 @@ export const Footer = styled.footer`
 	background-color: lavender;
 	padding: 2rem;
 `;
+
+export const LogoutButton = styled.button`
+	
+`

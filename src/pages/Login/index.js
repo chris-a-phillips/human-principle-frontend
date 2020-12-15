@@ -1,14 +1,23 @@
 import { React, useState } from 'react';
-import axios from 'axios'
-import { Redirect } from 'react-router-dom'
-import { ErrorMessage, FormInput, FormLabel, LoginForm, LoginPage, LoginPageButton, SubmitButton } from './LoginElements';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import {
+	ErrorMessage,
+	FormInput,
+	FormLabel,
+	LoginForm,
+	LoginPage,
+	LoginPageButton,
+	SubmitButton,
+} from './LoginElements';
 
-const Login = ({ setUser, setToken }) => {
-	const [newUser, setNewUser] = useState(false)
-	const [redirect, setRedirect] = useState(false)
-	const [error, setError] = useState('')
+const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
+	const [redirect, setRedirect] = useState(false);
+	const [error, setError] = useState('');
 	const [credentials, setCredentials] = useState({
-		username: '',
+		name: '',
+		department: '',
+		team: '',
 		email: '',
 		password: '',
 		re_password: '',
@@ -18,31 +27,34 @@ const Login = ({ setUser, setToken }) => {
 
 	const handleChange = (event) => {
 		event.preventDefault();
-		setCredentials({ ...credentials, [event.target.name]: event.target.value })
-	}
+		setCredentials({
+			...credentials,
+			[event.target.name]: event.target.value,
+		});
+	};
 
 	const handleClick = () => {
-		setNewUser(true)
-	}
+		setNewUser(!newUser);
+	};
 
 	const handleSubmit = (event) => {
 		if (!newUser) {
-			event.preventDefault()
+			event.preventDefault();
 			axios({
 				method: 'post',
 				url: signInURL,
-				data: credentials
-			})
-			.then((res) => {
-				console.log(res)
+				data: credentials,
+			}).then((res) => {
+				console.log(res);
 				if (res.data.auth_token) {
-					setToken(res.data.auth_token)
-					setUser(credentials.email)
-					setRedirect(true)
+					setToken(res.data.auth_token);
+					setUser(credentials.email);
+					setLoggedIn(true)
+					setRedirect(true);
 				} else {
-					setError(res.data)
+					setError(res.data);
 				}
-			})
+			});
 		} else if (newUser) {
 			event.preventDefault();
 			setUser(credentials.email);
@@ -52,19 +64,15 @@ const Login = ({ setUser, setToken }) => {
 				data: credentials,
 			}).then((res) => {
 				console.log(res);
-				setNewUser(false)
-				setCredentials({
-					email: '',
-					password: ''
-				});
+				setNewUser(false);
 				// create if statement for error if user is not created
 			});
 		}
+	};
+
+	if (redirect) {
+		return <Redirect to='/profile' />;
 	}
-		
-		if (redirect) {
-			return <Redirect to='/profile' />;
-		}
 
 	return (
 		<LoginPage>
@@ -74,64 +82,81 @@ const Login = ({ setUser, setToken }) => {
 			</div>
 			{!newUser ? (
 				<LoginForm onSubmit={handleSubmit}>
-				<FormLabel htmlFor='email'>Email</FormLabel>
-				<FormInput
-					type='email'
-					name='email'
-					placeholder='name@email.com'
-					value={credentials.email}
-					onChange={handleChange}></FormInput>
-				<FormLabel htmlFor='password'>Password</FormLabel>
-				<FormInput
-					type='password'
-					name='password'
-					placeholder='Enter Password'
-					value={credentials.password}
-					onChange={handleChange}></FormInput>
-				<FormLabel htmlFor='retypePassword'>Retype Password</FormLabel>
-				<SubmitButton>Log In</SubmitButton>
-			</LoginForm>
-				) : null}
+					<FormInput
+						type='email'
+						name='email'
+						placeholder='name@email.com'
+						value={credentials.email}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='email'>Email</FormLabel>
+					<FormInput
+						type='password'
+						name='password'
+						placeholder='Enter Password'
+						value={credentials.password}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='password'>Password</FormLabel>
+					<SubmitButton>Log In</SubmitButton>
+				</LoginForm>
+			) : null}
 			{newUser ? (
 				<LoginForm onSubmit={handleSubmit}>
-				<FormLabel htmlFor='username'>Username</FormLabel>
-				<FormInput
-					type='text'
-					name='username'
-					placeholder='Enter Username'
-					value={credentials.username}
-					onChange={handleChange}></FormInput>
-				<FormLabel htmlFor='email'>Email</FormLabel>
-				<FormInput
-					type='email'
-					name='email'
-					placeholder='name@email.com'
-					value={credentials.email}
-					onChange={handleChange}></FormInput>
-				<FormLabel htmlFor='password'>Password</FormLabel>
-				<FormInput
-					type='password'
-					name='password'
-					placeholder='Enter Password'
-					value={credentials.password}
-					onChange={handleChange}></FormInput>
-				<FormLabel htmlFor='retypePassword'>Retype Password</FormLabel>
-				<FormInput
-					type='password'
-					name='re_password'
-					placeholder='Re-Enter Password'
-					value={credentials.re_password}
-					onChange={handleChange}></FormInput>
-				<SubmitButton>Register</SubmitButton>
-			</LoginForm>
-				) : null}
-				{
-					!newUser ? (
-						<LoginPageButton onClick={handleClick}>New Profile</LoginPageButton>
-					) : null
-				}
+					<FormInput
+						type='text'
+						name='name'
+						placeholder='Enter Name'
+						value={credentials.name}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='name'>Name</FormLabel>
+					<FormInput
+						type='text'
+						name='department'
+						placeholder='Enter Department'
+						value={credentials.department}
+						onChange={handleChange}></FormInput>
+						<FormLabel htmlFor='department'>Department</FormLabel>
+					<FormInput
+						type='text'
+						name='team'
+						placeholder='Enter Team'
+						value={credentials.name}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='name'>Team</FormLabel>
+					<FormInput
+						type='email'
+						name='email'
+						placeholder='name@email.com'
+						value={credentials.email}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='email'>Email</FormLabel>
+					<FormInput
+						type='password'
+						name='password'
+						placeholder='Enter Password'
+						value={credentials.password}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='password'>Password</FormLabel>
+					<FormInput
+						type='password'
+						name='re_password'
+						placeholder='Re-Enter Password'
+						value={credentials.re_password}
+						onChange={handleChange}></FormInput>
+					<FormLabel htmlFor='retypePassword'>Retype Password</FormLabel>
+					<SubmitButton>Register</SubmitButton>
+				</LoginForm>
+			) : null}
+			{!newUser ? (
+				<LoginPageButton onClick={handleClick}>
+					Need A New Profile?
+				</LoginPageButton>
+			) : (
+				<LoginPageButton onClick={handleClick}>
+					Already Have A Profile?
+				</LoginPageButton>
+			)}
 		</LoginPage>
-		);
+	);
 };
 
 export default Login;

@@ -3,10 +3,10 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { FormContainer, FormQuestion, FormQuestionList, FormSubmit, FormLabel, FormInput } from './QuestionsElements.js';
 
-const QuestionForm = ({ token, formType, header, description, q1, q2, q3, q4, q5, q6, q7, }) => {
+const QuestionForm = ({ user, token, formType, header, description, q1, q2, q3, q4, q5, q6, q7, }) => {
      const [redirect, setRedirect] = useState(false)
 	const [response, setResponse] = useState({
-		username: 2,
+		email: user,
 		questionnaire_type: formType,
 		question_one: 0,
 		question_two: 0,
@@ -23,6 +23,8 @@ const QuestionForm = ({ token, formType, header, description, q1, q2, q3, q4, q5
           setResponse({ ...response, [event.target.name]: event.target.value });
           console.log(response);
      };
+
+     console.log(user)
 
      const handleSubmit = (event) => {
           console.log('Button Clicked');

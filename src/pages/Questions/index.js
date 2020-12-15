@@ -40,20 +40,23 @@ const Questions = ({ user, token }) => {
 			</ButtonWrapper>
 			{formType === 'Mental' ? (
 				<QuestionForm
+					user={user}
 					token={token}
 					{...mentalTemplate}
 					formType={formType}
 				/>
-			) : null}
+				) : null}
 			{formType === 'Physical' ? (
 				<QuestionForm
+					user={user}
 					token={token}
 					{...physicalTemplate}
 					formType={formType}
 				/>
-			) : null}
+				) : null}
 			{formType === 'Emotional' ? (
 				<QuestionForm
+					user={user}
 					token={token}
 					{...emotionalTemplate}
 					formType={formType}
