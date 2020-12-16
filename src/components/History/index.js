@@ -4,17 +4,28 @@ import FusionCharts from 'fusioncharts';
 import charts from 'fusioncharts/fusioncharts.charts';
 import ReactFusioncharts from 'react-fusioncharts';
 
-const History = ({ user, token, userData }) => {
+const History = ({ userData }) => {
 	let mentalData = [];
 	let physicalData = [];
     let emotionalData = [];
-    let responseDates = []
+	let responseDates = []
     
     for (let i = 0; i < userData.length; i++) {
-        responseDates.push({
-            label: Date(userData.date).slice(0, 15)
-        })
+		console.log()
+		if (
+			!responseDates.some(
+				(responseDates) =>
+					Date(userData[i].date).slice(0, 15) ===
+					responseDates.label
+			)
+		) {
+			responseDates.push({
+				label: Date(userData.date).slice(0, 15),
+			});
+		} 
     }
+
+	console.log(responseDates)
 
 	for (let i = 0; i < userData.length; i++) {
 		if (userData[i].questionnaire_type === 'Mental') {
@@ -62,7 +73,7 @@ const History = ({ user, token, userData }) => {
 		chart: {
 			caption: `History of Questionnaire Responses`,
 			yaxisname: 'Averate Response Answer',
-			subcaption: '2012-2016',
+			// subcaption: '2012-2016',
 			showhovereffect: '1',
 			numbersuffix: '/10',
 			drawcrossline: '1',

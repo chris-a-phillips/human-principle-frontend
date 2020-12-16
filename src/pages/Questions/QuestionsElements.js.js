@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const QuestionsWrapper = styled.div`
-
-`
+	width: 100%;
+	display: grid;
+	grid-template-rows: 1fr 3fr;
+	background-color: #f1d6b8;
+`;
 
 export const FormHeader = styled.h1``
 
@@ -11,11 +14,11 @@ export const FormSubmit = styled.button`
 `
 
 export const FormSwitchButton = styled.button`
-
+	margin: 15px;
 `
 
 export const ButtonWrapper = styled.div`
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
 `
 
@@ -24,8 +27,19 @@ export const FormQuestionList = styled.ol`
 `
 
 export const FormQuestion = styled.li`
-
+	margin: 10px;
 `
+
+export const FormContainer = styled.form`
+	background-color: #28afb0;
+	height: 100%;
+	width: 80%;
+	/* text-align: center; */
+	align-self: stretch;
+	margin-left: 15px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 12px 5px rgba(0, 0, 0, 0.74);
+`;
 
 // export const QuestionChoices = styled. idk
 
@@ -65,12 +79,6 @@ export const emotionalTemplate = {
 	q7: 'Overall I feel happy',
 };
 
-export const FormContainer = styled.form`
-	background-color: slategray;
-	height: 80%;
-	width: 70%;
-	text-align: center;
-`;
 
 export const FormLabel = styled.label`
 	/* display: block; */
@@ -81,4 +89,6 @@ export const FormInput = styled.input`
 	margin: auto;
 `;
 
-export const SubmitButton = styled.button``;
+export const SubmitButton = styled.button`
+	align-self: center;
+`;

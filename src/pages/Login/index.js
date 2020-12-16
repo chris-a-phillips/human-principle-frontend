@@ -6,12 +6,13 @@ import {
 	FormInput,
 	FormLabel,
 	LoginForm,
+	LoginH1,
 	LoginPage,
 	LoginPageButton,
 	SubmitButton,
 } from './LoginElements';
 
-const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
+const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 	const [redirect, setRedirect] = useState(false);
 	const [error, setError] = useState('');
 	const [credentials, setCredentials] = useState({
@@ -49,7 +50,6 @@ const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
 				if (res.data.auth_token) {
 					setToken(res.data.auth_token);
 					setUser(credentials.email);
-					setLoggedIn(true)
 					setRedirect(true);
 				} else {
 					setError(res.data);
@@ -57,13 +57,13 @@ const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
 			});
 		} else if (newUser) {
 			event.preventDefault();
-			setUser(credentials.email);
 			axios({
 				method: 'post',
 				url: signUpURL,
 				data: credentials,
 			}).then((res) => {
 				console.log(res);
+				setUser('');
 				setNewUser(false);
 				// create if statement for error if user is not created
 			});
@@ -76,12 +76,9 @@ const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
 
 	return (
 		<LoginPage>
-			<div>
-				<h1>Login</h1>
-				<ErrorMessage>{error}</ErrorMessage>
-			</div>
 			{!newUser ? (
 				<LoginForm onSubmit={handleSubmit}>
+					<LoginH1>Sign In</LoginH1>
 					<FormInput
 						type='email'
 						name='email'
@@ -98,9 +95,9 @@ const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
 					<FormLabel htmlFor='password'>Password</FormLabel>
 					<SubmitButton>Log In</SubmitButton>
 				</LoginForm>
-			) : null}
-			{newUser ? (
+			) : (
 				<LoginForm onSubmit={handleSubmit}>
+					<LoginH1>Sign Up</LoginH1>
 					<FormInput
 						type='text'
 						name='name'
@@ -114,14 +111,14 @@ const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
 						placeholder='Enter Department'
 						value={credentials.department}
 						onChange={handleChange}></FormInput>
-						<FormLabel htmlFor='department'>Department</FormLabel>
+					<FormLabel htmlFor='department'>Department</FormLabel>
 					<FormInput
 						type='text'
 						name='team'
 						placeholder='Enter Team'
-						value={credentials.name}
+						value={credentials.team}
 						onChange={handleChange}></FormInput>
-					<FormLabel htmlFor='name'>Team</FormLabel>
+					<FormLabel htmlFor='team'>Team</FormLabel>
 					<FormInput
 						type='email'
 						name='email'
@@ -142,10 +139,12 @@ const Login = ({ setUser, setToken, newUser, setNewUser, setLoggedIn }) => {
 						placeholder='Re-Enter Password'
 						value={credentials.re_password}
 						onChange={handleChange}></FormInput>
-					<FormLabel htmlFor='retypePassword'>Retype Password</FormLabel>
+					<FormLabel htmlFor='retypePassword'>
+						Retype Password
+					</FormLabel>
 					<SubmitButton>Register</SubmitButton>
 				</LoginForm>
-			) : null}
+			)}
 			{!newUser ? (
 				<LoginPageButton onClick={handleClick}>
 					Need A New Profile?

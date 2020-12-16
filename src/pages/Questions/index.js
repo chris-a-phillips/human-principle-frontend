@@ -25,8 +25,6 @@ const Questions = ({ user, token }) => {
 
 	return (
 		<QuestionsWrapper>
-			Questions
-			{formType}
 			<ButtonWrapper>
 				<FormSwitchButton onClick={changeMental}>
 					Mental
