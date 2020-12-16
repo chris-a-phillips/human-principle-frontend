@@ -21,13 +21,9 @@ const QuestionForm = ({ user, token, formType, header, description, q1, q2, q3, 
 
      const handleChange = (event) => {
           setResponse({ ...response, [event.target.name]: event.target.value });
-          console.log(response);
      };
 
-     console.log(user)
-
      const handleSubmit = (event) => {
-          console.log('Button Clicked');
           event.preventDefault();
           axios({
                method: 'post',

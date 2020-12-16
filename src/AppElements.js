@@ -23,11 +23,13 @@ export const Main = styled.main`
 	background-color: peachpuff;
 `;
 
-export const Footer = styled.footer`
+export const FooterWrapper = styled.footer`
 	background-color: lavender;
 	padding: 2rem;
 `;
 
 export const LogoutButton = styled.button`
-	
-`
+	position: absolute;
+	cursor: pointer;
+	right: 15%;
+`;

@@ -1,19 +1,19 @@
 import './App.css';
 import { React, useState } from 'react';
-import { UserContext } from './components/UserContext';
-import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Questions from './pages/Questions';
-import { Footer, Header, LogoutButton, Main, NavLink, PageWrapper } from './AppElements';
+import Footer from './components/Footer';
+import { FooterWrapper, Header, LogoutButton, Main, NavLink, PageWrapper } from './AppElements';
 import Profile from './pages/Profile';
 import axios from 'axios'
+import Landing from './pages/Landing';
 
 function App() {
 	const [user, setUser] = useState('');
 	const [token, setToken] = useState('');
 	const [newUser, setNewUser] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
-	const history = useHistory()
 
 	const logout = () => {
 		setUser('')
@@ -31,17 +31,19 @@ function App() {
 			console.log(res)
 			setLoggedIn(false)
 		});
-		// history.push('/')
+		window.location.href='/'
 	}
 
 	return (
 		<div className='App'>
-			<UserContext.Provider value={token}>
 				<PageWrapper>
 					<Router>
 						<Header>
 							<NavLink>
-								<Link to='/'>Login</Link>
+								<Link to='/'>Home</Link>
+							</NavLink>
+							<NavLink>
+								<Link to='/login'>Login</Link>
 							</NavLink>
 							<NavLink>
 								<Link to='/profile'>Profile</Link>
@@ -58,9 +60,13 @@ function App() {
 								<Route
 									path='/'
 									exact
+									component={Landing}
+								/>
+								<Route
+									path='/login'
+									exact
 									render={() => (
 										<Login
-										history={history}
 											setUser={setUser}
 											setToken={setToken}
 											newUser={newUser}
@@ -94,10 +100,11 @@ function App() {
 								/>
 							</Switch>
 						</Main>
-						<Footer></Footer>
+						<FooterWrapper>
+						<Footer />
+						</FooterWrapper>
 					</Router>
 				</PageWrapper>
-			</UserContext.Provider>
 		</div>
 	);
 }
