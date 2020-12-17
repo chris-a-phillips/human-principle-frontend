@@ -17,7 +17,7 @@ const Landing = () => {
         <LandingWrapper>
             <LandingingTextBox>
             <LandingHeading>Human Principle</LandingHeading>
-            <LandingCaption>Keep Track Of Your Most Human Traits and Work Toward Being Your Best Self</LandingCaption>
+            <LandingCaption>Keep Track Of Your Most Human Traits<br/>and Work Toward Being Your Best Self</LandingCaption>
             <LandingSubcaption>Quick and Easy</LandingSubcaption>
             <LandingSubcaption>Straightforward Tracking</LandingSubcaption>
             <LandingSubcaption>Safe and Secure</LandingSubcaption>

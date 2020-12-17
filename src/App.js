@@ -34,16 +34,18 @@ function App() {
 		<div className='App'>
 			<PageWrapper>
 				<Router>
-					<Header>
+					<Main>
+						{user ? (
+							<Header>
 						<NavLink to='/'>Home</NavLink>
+						{/* remove before */}
 						<NavLink to='/login'>Login</NavLink>
 						<NavLink to='/profile'>Profile</NavLink>
 						<NavLink to='/questions'>Questions</NavLink>
-						{user ? (
 							<LogoutButton onClick={logout}>Logout</LogoutButton>
-						) : null}
 					</Header>
-					<Main>
+						) : (
+							<Header></Header>)}
 						<Switch>
 							<Route path='/' exact component={Landing} />
 							<Route
@@ -78,10 +80,9 @@ function App() {
 								)}
 							/>
 						</Switch>
-					</Main>
 					<Footer>
 						<FooterSection>
-							<FooterText>Contact Me</FooterText>
+							<FooterText>Contact</FooterText>
 						<FooterLink
 							target={'blank'}
 							href='https://www.linkedin.com/in/chris-a-phillips/'>
@@ -98,6 +99,7 @@ function App() {
 						</FooterLink>
 						</FooterSection>
 					</Footer>
+							</Main>
 				</Router>
 			</PageWrapper>
 		</div>

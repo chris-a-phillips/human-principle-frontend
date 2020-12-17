@@ -36,6 +36,7 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 
 	const handleClick = () => {
 		setNewUser(!newUser);
+		setError('')
 	};
 
 	const handleSubmit = (event) => {
@@ -53,8 +54,13 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 					setRedirect(true);
 				} else {
 					setError(res.data);
+					throw new Error('There was an error signing in')
 				}
-			});
+				return res
+			}).catch(
+				console.error,
+				setError('There was an error signing in')
+			)
 		} else if (newUser) {
 			event.preventDefault();
 			axios({
@@ -65,9 +71,12 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 				console.log(res);
 				setUser('');
 				setNewUser(false);
-				// create if statement for error if user is not created
-			});
+			}).catch(
+				console.error,
+				setError('There was an error signing up')
+			);
 		}
+		
 	};
 
 	if (redirect) {
@@ -79,6 +88,7 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 			{!newUser ? (
 				<LoginForm onSubmit={handleSubmit}>
 					<LoginH1>Sign In</LoginH1>
+					{error}
 					<FormInput
 						type='email'
 						name='email'
@@ -94,10 +104,14 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 						onChange={handleChange}></FormInput>
 					<FormLabel htmlFor='password'>Password</FormLabel>
 					<SubmitButton>Log In</SubmitButton>
+					<LoginPageButton onClick={handleClick}>
+					Need A New Profile?
+				</LoginPageButton>
 				</LoginForm>
 			) : (
 				<LoginForm onSubmit={handleSubmit}>
 					<LoginH1>Sign Up</LoginH1>
+					{error}
 					<FormInput
 						type='text'
 						name='name'
@@ -143,16 +157,10 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 						Retype Password
 					</FormLabel>
 					<SubmitButton>Register</SubmitButton>
-				</LoginForm>
-			)}
-			{!newUser ? (
-				<LoginPageButton onClick={handleClick}>
-					Need A New Profile?
-				</LoginPageButton>
-			) : (
 				<LoginPageButton onClick={handleClick}>
 					Already Have A Profile?
 				</LoginPageButton>
+				</LoginForm>
 			)}
 		</LoginPage>
 	);

@@ -1,42 +1,40 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const QuestionsWrapper = styled.div`
 	width: 100%;
 	display: grid;
-	grid-template-rows: 1fr 3fr;
+	grid-template-rows: auto 1fr;
 	background-color: #f1d6b8;
 `;
 
-export const FormHeader = styled.h1``
+export const FormHeader = styled.h1`
+	text-align: center;
+	padding: 5px;
+	`;
 
-export const FormSubmit = styled.button`
+export const FormSubmit = styled.button``;
 
-`
-
-export const FormSwitchButton = styled.button`
-	margin: 15px;
-`
+export const FormSwitchButton = styled.button``;
 
 export const ButtonWrapper = styled.div`
-    justify-content: space-between;
-    width: 100%;
-`
+	display: flex;
+	justify-content: space-evenly;
+	margin: 10px;
+	/* width: 100%; */
+`;
 
-export const FormQuestionList = styled.ol`
-
-`
+export const FormQuestionList = styled.ol``;
 
 export const FormQuestion = styled.li`
 	margin: 10px;
-`
+`;
 
 export const FormContainer = styled.form`
 	background-color: #28afb0;
-	height: 100%;
+	height: 80%;
 	width: 80%;
-	/* text-align: center; */
 	align-self: stretch;
-	margin-left: 15px;
+	margin: auto;
 	border-radius: 10px;
 	box-shadow: 5px 5px 12px 5px rgba(0, 0, 0, 0.74);
 `;
@@ -45,7 +43,7 @@ export const FormContainer = styled.form`
 
 export const mentalTemplate = {
 	header: 'Mental',
-	description: 'Read',
+	description: 'Questions about how you feel mentally',
 	q1: 'I feel that I am in control of my life',
 	q2: 'I fell fully mentally alert',
 	q3: 'I am able to make everyday decisions without stress',
@@ -57,7 +55,7 @@ export const mentalTemplate = {
 
 export const physicalTemplate = {
 	header: 'Physical',
-    description: 'Exercise',
+	description: 'Questions about how you feel physically',
 	q1: 'I wake up feeling rested',
 	q2: 'I am happy with the shape I’m in and my current physical condition',
 	q3: 'I usually have energy and don’t suffer from sudden loss of breath',
@@ -69,7 +67,7 @@ export const physicalTemplate = {
 
 export const emotionalTemplate = {
 	header: 'Emotional',
-	description: 'Laugh',
+	description: 'Questions about how you feel emotionally',
 	q1: 'I have good conversations regularly',
 	q2: 'I laugh a lot',
 	q3: 'I have a cheerful effect on others',
@@ -79,16 +77,21 @@ export const emotionalTemplate = {
 	q7: 'Overall I feel happy',
 };
 
-
 export const FormLabel = styled.label`
-	/* display: block; */
 `;
 
+export const InputSet = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+`;
+
+export const InputOption = styled.div``
+
 export const FormInput = styled.input`
-	/* display: block; */
 	margin: auto;
 `;
 
 export const SubmitButton = styled.button`
-	align-self: center;
+	display: block;
+	margin: 10 auto;
 `;

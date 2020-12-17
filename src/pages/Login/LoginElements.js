@@ -10,7 +10,8 @@ export const LoginPage = styled.div`
 
 export const LoginForm = styled.form`
 	background-color: #28afb0;
-	height: 80%;
+	padding-top: 25px;
+	height: 75%;
 	width: 70%;
 	text-align: center;
 	border-radius: 10px;
@@ -18,23 +19,27 @@ export const LoginForm = styled.form`
     margin-top: 4rem;
 `;
 
-export const LoginH1 = styled.h1``
+export const LoginH1 = styled.h1`
+`
 
 export const FormLabel = styled.label`
     display: block;
 `
 
 export const FormInput = styled.input`
-display: block;
-margin: auto;
+	margin-top: 10px;
 `
 
-export const SubmitButton = styled.button``
+export const SubmitButton = styled.button`
+	margin: 20px;
+`
 
 export const ErrorMessage = styled.h1`
-    color: red;
+	color: red;
+	text-align: center;
 `
 
 export const LoginPageButton = styled.button`
-    margin-top: -15%;
+	display: block;
+    margin: 0 auto;
 `

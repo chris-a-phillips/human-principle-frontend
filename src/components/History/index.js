@@ -25,7 +25,7 @@ const History = ({ userData }) => {
 		} 
     }
 
-	console.log(responseDates)
+	console.log(physicalData)
 
 	for (let i = 0; i < userData.length; i++) {
 		if (userData[i].questionnaire_type === 'Mental') {

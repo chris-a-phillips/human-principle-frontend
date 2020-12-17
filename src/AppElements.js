@@ -2,11 +2,8 @@ import styled from 'styled-components';
 import { Link as Link } from 'react-router-dom'
 
 export const PageWrapper = styled.div`
-	display: grid;
-	grid-template-rows: auto 1fr auto;
-	height: 100vh;
 	color: #7a0c3e;
-	`;
+`;
 
 export const Header = styled.header`
 	padding: 2rem;
@@ -52,6 +49,9 @@ export const FooterText = styled.h1`
 `
 
 export const Main = styled.main`
+	grid-template-rows: auto 1fr auto;
+	display: grid;
+	height: 100vh;
 `;
 
 export const LogoutButton = styled.button`

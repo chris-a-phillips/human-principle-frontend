@@ -20,11 +20,18 @@ export const LandingingTextBox = styled.div`
     color: #af125a;
 `
 
-export const LandingHeading = styled.h1``
+export const LandingHeading = styled.h1`
+    font-size: 3rem;
+    padding: 1rem;
+`
 
-export const LandingCaption = styled.h3``
+export const LandingCaption = styled.h3`
+    font-size: 1.75rem;
+    margin: 0 
+`
 
-export const LandingSubcaption = styled.p`   
+export const LandingSubcaption = styled.p`
+    font-size: 1.25rem;
 `
 
 export const StartButton = styled.button``
