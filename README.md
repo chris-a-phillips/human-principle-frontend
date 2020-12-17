@@ -1,16 +1,18 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<p align="center">
-  <a href="https://github.com/chris-a-phillips/human-principle-frontend">
-    <img src="./src/images/human-principle.gif" alt="Human Principle" width="80" height="80">
-  </a>
 
   <h3 align="center">Human Principle</h3>
 
   <p align="center">
     Keep Track of Your Most Human Traits and Work Towards Being Your Best Self
     <br />
+
+<p align="center">
+  <a href="https://github.com/chris-a-phillips/human-principle-frontend">
+    <img src="./src/images/human-principle.gif" alt="Human Principle" width="300" height="300">
+    <br/>
+  </a>
     <a href="https://github.com/chris-a-phillips/human-principle-frontend/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -55,16 +57,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[!Home Page][Home Page]](src/images/homepage.png)
-[!Profile Page][Profile Page]](src/images/profile-page.png)
-[!Questionnaire Page][Questionnaire Page]](src/images/questionnaire-form.png)
-
 This is an app focused on keeping track of how people are doing. While their is a lot of focus on professional producivity and work, not enough thought is put into the personal side of a person. This app was inspired by the current landscape of remote working.
 After a person makes an account they will be able to answer questions about how they feel mentally, physically, and emotionally. This app will keep track of averages of those responses and the user will be able to see a chart of the results.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [React](https://reactjs.org/)
 * [Styled Components](https://styled-components.com/)
 * [Fusion Charts](https://www.fusioncharts.com/)
@@ -87,7 +84,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/chris-a-phillips/human-principle-frontend.git
    ```
 2. Install NPM packages
    ```sh
@@ -99,9 +96,14 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+[!Home Page][Home Page]](src/images/homepage.png)
+[!Profile Page][Profile Page]](src/images/profile-page.png)
+[!Questionnaire Page][Questionnaire Page]](src/images/questionnaire-form.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Users have the ability to track themselves over a long period of time and submit as many questionnaires as they would like.
+As of now this app is for personal use. In the future it will be expanded for teams and supervisors to use together.
+
+_For more examples, please refer to the [Documentation](https://github.com/chris-a-phillips/human-principle-frontend/blob/main/README.md)_
 
 
 
