@@ -71,12 +71,4 @@ export const LogoutButton = styled.button`
 		padding: 6px 13px;
 		text-decoration: none;
 		text-shadow: 0px 1px 0px #263666;
-	:hover {
-		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
-		background-color: #415989;
-	}
-	:active {
-		position: relative;
-		top: 1px;
-	}
 `;

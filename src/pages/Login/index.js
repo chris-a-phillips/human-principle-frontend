@@ -16,8 +16,6 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 	const [error, setError] = useState('');
 	const [credentials, setCredentials] = useState({
 		name: '',
-		department: '',
-		team: '',
 		email: '',
 		password: '',
 		re_password: '',
@@ -113,20 +111,6 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 						value={credentials.name}
 						onChange={handleChange}></FormInput>
 					<FormLabel htmlFor='name'>Name</FormLabel>
-					<FormInput
-						type='text'
-						name='department'
-						placeholder='Enter Department'
-						value={credentials.department}
-						onChange={handleChange}></FormInput>
-					<FormLabel htmlFor='department'>Department</FormLabel>
-					<FormInput
-						type='text'
-						name='team'
-						placeholder='Enter Team'
-						value={credentials.team}
-						onChange={handleChange}></FormInput>
-					<FormLabel htmlFor='team'>Team</FormLabel>
 					<FormInput
 						type='email'
 						name='email'
