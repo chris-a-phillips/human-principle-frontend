@@ -1,37 +1,89 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const QuestionsWrapper = styled.div`
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	background-color: #f1d6b8;
+`;
 
-`
-
-export const FormHeader = styled.h1``
+export const FormHeader = styled.h1`
+	text-align: center;
+	padding: 5px;
+	`;
 
 export const FormSubmit = styled.button`
-
-`
+	box-shadow: inset 0px 0px 15px 3px #23395e;
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 17px;
+	border: 1px solid #1f2f47;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 13px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+	:hover {
+		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+		background-color: #415989;
+	}
+	:active {
+		position: relative;
+		top: 1px;
+	}
+`;
 
 export const FormSwitchButton = styled.button`
-
-`
+	box-shadow: inset 0px 0px 15px 3px #23395e;
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 17px;
+	border: 1px solid #1f2f47;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 13px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+	:hover {
+		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+		background-color: #415989;
+	}
+	:active {
+		position: relative;
+		top: 1px;
+	}
+`;
 
 export const ButtonWrapper = styled.div`
-    justify-content: space-evenly;
-    width: 100%;
-`
+	display: flex;
+	justify-content: space-evenly;
+	margin: 10px;
+`;
 
-export const FormQuestionList = styled.ol`
-
-`
+export const FormQuestionList = styled.ol``;
 
 export const FormQuestion = styled.li`
+	margin: 10px;
+`;
 
-`
-
-// export const QuestionChoices = styled. idk
+export const FormContainer = styled.form`
+	background-color: #28afb0;
+	height: 80%;
+	width: 80%;
+	align-self: stretch;
+	margin: auto;
+	border-radius: 10px;
+	box-shadow: 5px 5px 12px 5px rgba(0, 0, 0, 0.74);
+`;
 
 export const mentalTemplate = {
 	header: 'Mental',
-	description: 'Read',
 	q1: 'I feel that I am in control of my life',
 	q2: 'I fell fully mentally alert',
 	q3: 'I am able to make everyday decisions without stress',
@@ -43,7 +95,6 @@ export const mentalTemplate = {
 
 export const physicalTemplate = {
 	header: 'Physical',
-    description: 'Exercise',
 	q1: 'I wake up feeling rested',
 	q2: 'I am happy with the shape I’m in and my current physical condition',
 	q3: 'I usually have energy and don’t suffer from sudden loss of breath',
@@ -55,7 +106,6 @@ export const physicalTemplate = {
 
 export const emotionalTemplate = {
 	header: 'Emotional',
-	description: 'Laugh',
 	q1: 'I have good conversations regularly',
 	q2: 'I laugh a lot',
 	q3: 'I have a cheerful effect on others',
@@ -65,20 +115,36 @@ export const emotionalTemplate = {
 	q7: 'Overall I feel happy',
 };
 
-export const FormContainer = styled.form`
-	background-color: slategray;
-	height: 80%;
-	width: 70%;
-	text-align: center;
-`;
-
 export const FormLabel = styled.label`
-	/* display: block; */
+margin: 5px 15px 5px 2px;
+
 `;
 
 export const FormInput = styled.input`
-	/* display: block; */
-	margin: auto;
 `;
 
-export const SubmitButton = styled.button``;
+export const SubmitButton = styled.button`
+	display: block;
+	margin: 10 auto;
+	box-shadow: inset 0px 0px 15px 3px #23395e;
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 17px;
+	border: 1px solid #1f2f47;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 13px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+	:hover {
+		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+		background-color: #415989;
+	}
+	:active {
+		position: relative;
+		top: 1px;
+	}
+`;

@@ -4,19 +4,18 @@ import ProfileInfo from '../../components/ProfileInfo';
 import { ProfileWrapper } from './ProfileElements';
 const axios = require('axios');
 
-const Profile = ({ user, token }) => {
-	const [userData, setUserData] = useState(null);
-	const url = 'http://localhost:8000/principles/';
+const Profile = ({ token }) => {
+	const [userData, setUserData] = useState('');
+	const principleURL = 'http://localhost:8000/principles/';
 
 	useEffect(() => {
 		axios({
 			method: 'get',
-			url: url,
+			url: principleURL,
 			headers: {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
-			console.log(res);
 			setUserData(res.data)
 		});
 		}, []);
@@ -24,7 +23,7 @@ const Profile = ({ user, token }) => {
 
     return (
 		<ProfileWrapper>
-			<ProfileInfo userData={userData} />
+			<ProfileInfo userData={userData} token={token}/>
 			<History userData={userData} />
 		</ProfileWrapper>
 	);
