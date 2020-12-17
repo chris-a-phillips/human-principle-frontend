@@ -19,7 +19,6 @@ const ProfileInfo = ({ token }) => {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
-			console.log(res)
 			setUserProfile({
 				name: res.data.name,
 				email: res.data.email,
