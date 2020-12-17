@@ -15,10 +15,10 @@ export const LandingWrapper = styled.div`
 `
 
 export const LandingingTextBox = styled.div`
-    background-color: rgba(0,0,0,0.30);
-    border-radius: 10px;
-    color: #af125a;
-`
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	color: #d9d9d9;
+`;
 
 export const LandingHeading = styled.h1`
     font-size: 3rem;

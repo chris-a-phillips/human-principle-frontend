@@ -4,8 +4,10 @@ import axios from 'axios'
 
 const ProfileInfo = ({ token }) => {
     const [userProfile, setUserProfile] = useState({
-        email: "",
         name: "",
+        email: "",
+    	team: "",
+        department: "",
     });
     const personalURL = 'http://localhost:8000/users/me/';
 
@@ -17,9 +19,12 @@ const ProfileInfo = ({ token }) => {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
+			console.log(res)
 			setUserProfile({
-				email: res.data.email,
 				name: res.data.name,
+				email: res.data.email,
+				team: res.data.team,
+				department: res.data.department,
 			});
 		});
     }, [])
@@ -30,6 +35,8 @@ const ProfileInfo = ({ token }) => {
             <ProfileCard>
                 <ProfileH1>Name: {userProfile.name}</ProfileH1>
                 <ProfileH2>Email: {userProfile.email}</ProfileH2>
+                <ProfileH3>Department: {userProfile.Department}</ProfileH3>
+                <ProfileH3>Team: {userProfile.team}</ProfileH3>
             </ProfileCard>
             <ProfileWhiteSpace></ProfileWhiteSpace>
 		</ProfileInfoWrapper>

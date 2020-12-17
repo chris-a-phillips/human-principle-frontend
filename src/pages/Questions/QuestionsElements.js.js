@@ -5,6 +5,7 @@ export const QuestionsWrapper = styled.div`
 	display: grid;
 	grid-template-rows: auto 1fr;
 	background-color: #f1d6b8;
+	color: #7a0c3e;
 `;
 
 export const FormHeader = styled.h1`

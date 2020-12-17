@@ -12,6 +12,7 @@ export const ProfileImgContainer = styled.div``
 
 export const ProfileCard = styled.div`
 	background-color: #6d7e6b;
+	color: #e6e6e6;
 `;
 
 export const ProfileWhiteSpace = styled.div``

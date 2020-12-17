@@ -11,17 +11,17 @@ const History = ({ userData }) => {
 	let responseDates = []
     
     for (let i = 0; i < userData.length; i++) {
-		if (
-			!responseDates.some(
-				(responseDates) =>
-					Date(userData[i].date).slice(0, 15) ===
-					responseDates.label
-			)
-		) {
+		// if (
+		// 	!responseDates.some(
+		// 		(responseDates) =>
+		// 			Date(userData[i].date).slice(0, 15) ===
+		// 			responseDates.label
+		// 	)
+		// ) {
 			responseDates.push({
 				label: Date(userData.date).slice(0, 15),
 			});
-		} 
+		// } 
     }
 
 	for (let i = 0; i < userData.length; i++) {
