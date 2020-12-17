@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link as Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const PageWrapper = styled.div`
 	color: #7a0c3e;
@@ -37,6 +37,7 @@ export const NavLink = styled(Link)`
 	cursor: pointer;
 	margin: 0 10px;
 	display: inline-block;
+	font-weight: bold;
 `
 
 export const FooterLink = styled.a`
@@ -56,6 +57,26 @@ export const Main = styled.main`
 
 export const LogoutButton = styled.button`
 	position: absolute;
-	cursor: pointer;
 	right: 15%;
+		box-shadow: inset 0px 0px 15px 3px #23395e;
+		background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+		background-color: #2e466e;
+		border-radius: 17px;
+		border: 1px solid #1f2f47;
+		display: inline-block;
+		cursor: pointer;
+		color: #ffffff;
+		font-family: Arial;
+		font-size: 15px;
+		padding: 6px 13px;
+		text-decoration: none;
+		text-shadow: 0px 1px 0px #263666;
+	:hover {
+		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+		background-color: #415989;
+	}
+	:active {
+		position: relative;
+		top: 1px;
+	}
 `;

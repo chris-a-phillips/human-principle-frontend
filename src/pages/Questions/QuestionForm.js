@@ -13,10 +13,8 @@ import {
 } from './QuestionsElements.js';
 
 const QuestionForm = ({
-	user,
 	token,
 	formType,
-	header,
 	q1,
 	q2,
 	q3,
@@ -41,7 +39,6 @@ const QuestionForm = ({
 
 	const handleChange = (event) => {
 		setResponse({ ...response, [event.target.name]: event.target.value });
-		console.log(response);
 	};
 
 	const handleSubmit = (event) => {
@@ -54,10 +51,7 @@ const QuestionForm = ({
 			},
 			data: response,
 		})
-          .then((res) => {
-               console.log(res);
-               setRedirect(true);
-          })
+          .then(setRedirect(true))
 	};
 
 	if (redirect) {

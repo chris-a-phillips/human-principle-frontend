@@ -2,7 +2,6 @@ import { React, useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import {
-	ErrorMessage,
 	FormInput,
 	FormLabel,
 	LoginForm,
@@ -47,7 +46,6 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 				url: signInURL,
 				data: credentials,
 			}).then((res) => {
-				console.log(res);
 				if (res.data.auth_token) {
 					setToken(res.data.auth_token);
 					setUser(credentials.email);
@@ -58,7 +56,6 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 				}
 				return res
 			}).catch(
-				console.error,
 				setError('There was an error signing in')
 			)
 		} else if (newUser) {
@@ -68,11 +65,9 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 				url: signUpURL,
 				data: credentials,
 			}).then((res) => {
-				console.log(res);
 				setUser('');
 				setNewUser(false);
 			}).catch(
-				console.error,
 				setError('There was an error signing up')
 			);
 		}
@@ -88,7 +83,6 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 			{!newUser ? (
 				<LoginForm onSubmit={handleSubmit}>
 					<LoginH1>Sign In</LoginH1>
-					{error}
 					<FormInput
 						type='email'
 						name='email'
@@ -105,13 +99,13 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 					<FormLabel htmlFor='password'>Password</FormLabel>
 					<SubmitButton>Log In</SubmitButton>
 					<LoginPageButton onClick={handleClick}>
-					Need A New Profile?
-				</LoginPageButton>
+						Need A New Profile?
+					</LoginPageButton>
+					{error}
 				</LoginForm>
 			) : (
 				<LoginForm onSubmit={handleSubmit}>
 					<LoginH1>Sign Up</LoginH1>
-					{error}
 					<FormInput
 						type='text'
 						name='name'
@@ -157,9 +151,10 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 						Retype Password
 					</FormLabel>
 					<SubmitButton>Register</SubmitButton>
-				<LoginPageButton onClick={handleClick}>
-					Already Have A Profile?
-				</LoginPageButton>
+					<LoginPageButton onClick={handleClick}>
+						Already Have A Profile?
+					</LoginPageButton>
+					{error}
 				</LoginForm>
 			)}
 		</LoginPage>

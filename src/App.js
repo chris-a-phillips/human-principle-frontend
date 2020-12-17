@@ -24,9 +24,7 @@ function App() {
 			headers: {
 				Authorization: `Token ${token}`
 			}
-		}).then((res) => {
-			console.log(res)
-		});
+		})
 		window.location.href='/'
 	}
 
@@ -38,8 +36,6 @@ function App() {
 						{user ? (
 							<Header>
 						<NavLink to='/'>Home</NavLink>
-						{/* remove before */}
-						<NavLink to='/login'>Login</NavLink>
 						<NavLink to='/profile'>Profile</NavLink>
 						<NavLink to='/questions'>Questions</NavLink>
 							<LogoutButton onClick={logout}>Logout</LogoutButton>

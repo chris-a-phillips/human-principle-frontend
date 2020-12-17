@@ -4,7 +4,7 @@ import ProfileInfo from '../../components/ProfileInfo';
 import { ProfileWrapper } from './ProfileElements';
 const axios = require('axios');
 
-const Profile = ({ user, token }) => {
+const Profile = ({ token }) => {
 	const [userData, setUserData] = useState('');
 	const principleURL = 'http://localhost:8000/principles/';
 
@@ -16,7 +16,6 @@ const Profile = ({ user, token }) => {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
-			// console.log(res);
 			setUserData(res.data)
 		});
 		}, []);

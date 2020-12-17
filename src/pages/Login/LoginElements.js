@@ -32,7 +32,28 @@ export const FormInput = styled.input`
 
 export const SubmitButton = styled.button`
 	margin: 20px;
-`
+	box-shadow: inset 0px 0px 15px 3px #23395e;
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 17px;
+	border: 1px solid #1f2f47;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 13px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+	:hover {
+		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+		background-color: #415989;
+	}
+	:active {
+		position: relative;
+		top: 1px;
+	}
+`;
 
 export const ErrorMessage = styled.h1`
 	color: red;
@@ -41,5 +62,25 @@ export const ErrorMessage = styled.h1`
 
 export const LoginPageButton = styled.button`
 	display: block;
-    margin: 0 auto;
-`
+	margin: 0 auto;
+	box-shadow: inset 0px 0px 15px 3px #23395e;
+	background: linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color: #2e466e;
+	border-radius: 17px;
+	border: 1px solid #1f2f47;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 13px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+	:hover {
+		background: linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+		background-color: #415989;
+	}
+	:active {
+		position: relative;
+		top: 1px;
+	}
+`;

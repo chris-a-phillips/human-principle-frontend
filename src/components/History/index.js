@@ -11,7 +11,6 @@ const History = ({ userData }) => {
 	let responseDates = []
     
     for (let i = 0; i < userData.length; i++) {
-		console.log()
 		if (
 			!responseDates.some(
 				(responseDates) =>
@@ -24,8 +23,6 @@ const History = ({ userData }) => {
 			});
 		} 
     }
-
-	console.log(physicalData)
 
 	for (let i = 0; i < userData.length; i++) {
 		if (userData[i].questionnaire_type === 'Mental') {
@@ -73,7 +70,6 @@ const History = ({ userData }) => {
 		chart: {
 			caption: `History of Questionnaire Responses`,
 			yaxisname: 'Averate Response Answer',
-			// subcaption: '2012-2016',
 			showhovereffect: '1',
 			numbersuffix: '/10',
 			drawcrossline: '1',

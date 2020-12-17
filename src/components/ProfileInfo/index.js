@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { ProfileCard, ProfileH1, ProfileH2, ProfileH3, ProfileImgContainer, ProfileInfoWrapper, ProfileWhiteSpace } from './ProfileInfoElements';
 import axios from 'axios'
 
-const ProfileInfo = ({ user, token, userData }) => {
+const ProfileInfo = ({ token }) => {
     const [userProfile, setUserProfile] = useState({
         department: "",
         email: "",
@@ -19,7 +19,6 @@ const ProfileInfo = ({ user, token, userData }) => {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
-			console.log(res);
 			setUserProfile({
 				department: res.data.department,
 				email: res.data.email,
@@ -28,9 +27,6 @@ const ProfileInfo = ({ user, token, userData }) => {
 			});
 		});
     }, [])
-
-
-    console.log(userData)
 
     return (
 		<ProfileInfoWrapper>
