@@ -1,11 +1,12 @@
 import { React, useState, useEffect } from 'react';
-import { ProfileCard, ProfileH1, ProfileH2, ProfileH3, ProfileImgContainer, ProfileInfoWrapper, ProfileWhiteSpace } from './ProfileInfoElements';
+import { ProfileCard, ProfileH1, ProfileH2, ProfileH3, ProfileImgContainer, ProfileInfoWrapper } from './ProfileInfoElements';
 import axios from 'axios'
+import Goals from '../ProfileGoals';
 
-const ProfileInfo = ({ token }) => {
+const ProfileInfo = ({ token, user }) => {
     const [userProfile, setUserProfile] = useState({
-        email: "",
         name: "",
+        email: ""
     });
     const personalURL = 'http://localhost:8000/users/me/';
 
@@ -18,8 +19,10 @@ const ProfileInfo = ({ token }) => {
 			},
 		}).then((res) => {
 			setUserProfile({
-				email: res.data.email,
 				name: res.data.name,
+				email: res.data.email,
+				team: res.data.team,
+				department: res.data.department,
 			});
 		});
     }, [])
@@ -28,10 +31,10 @@ const ProfileInfo = ({ token }) => {
 		<ProfileInfoWrapper>
             <ProfileImgContainer></ProfileImgContainer>
             <ProfileCard>
-                <ProfileH1>Name: {userProfile.name}</ProfileH1>
-                <ProfileH2>Email: {userProfile.email}</ProfileH2>
+                <ProfileH1>Name:<br/>{userProfile.name}</ProfileH1>
+                <ProfileH2>Email:<br/>{userProfile.email}</ProfileH2>
             </ProfileCard>
-            <ProfileWhiteSpace></ProfileWhiteSpace>
+            <Goals token={token} user={user}/>
 		</ProfileInfoWrapper>
 	);
 };

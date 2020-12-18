@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom'
 
 export const PageWrapper = styled.div`
-	color: #7a0c3e;
+	color: #e6e6e6;
 `;
 
 export const Header = styled.header`
@@ -32,7 +32,7 @@ export const FooterSection = styled.div`
 `
 
 export const NavLink = styled(Link)`
-	color: #7a0c3e;
+	color: #d9d9d9;
 	text-decoration: none;
 	cursor: pointer;
 	margin: 0 10px;
@@ -42,7 +42,7 @@ export const NavLink = styled(Link)`
 
 export const FooterLink = styled.a`
 	text-decoration-line: none;
-	color: #7a0c3e;
+	color: #d9d9d9;
 `;
 
 export const FooterText = styled.h1`

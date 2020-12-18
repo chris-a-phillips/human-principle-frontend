@@ -1,4 +1,4 @@
-import React from 'react';
+import { React } from 'react';
 import { ChartContainer, HistoryWrapper } from './HistoryElements';
 import FusionCharts from 'fusioncharts';
 import charts from 'fusioncharts/fusioncharts.charts';
@@ -7,22 +7,25 @@ import ReactFusioncharts from 'react-fusioncharts';
 const History = ({ userData }) => {
 	let mentalData = [];
 	let physicalData = [];
-    let emotionalData = [];
-	let responseDates = []
-    
-    for (let i = 0; i < userData.length; i++) {
-		if (
-			!responseDates.some(
-				(responseDates) =>
-					Date(userData[i].date).slice(0, 15) ===
-					responseDates.label
-			)
-		) {
-			responseDates.push({
-				label: Date(userData.date).slice(0, 15),
-			});
-		} 
-    }
+	let emotionalData = [];
+	let rawDates = [];
+	let responseDates = new Set(rawDates);
+	let graphDates = [];
+
+	for (let i = 0; i < userData.length; i++) {
+		let newDate = userData[i].date;
+		rawDates.push({
+			label: newDate,
+		});
+		responseDates.add(userData[i].date);
+	}
+	let setArray = Array.from(responseDates)
+
+	for (let i = 0; i < setArray.length; i++) {
+		graphDates.push({
+			label: setArray[i]
+		});
+	}
 
 	for (let i = 0; i < userData.length; i++) {
 		if (userData[i].questionnaire_type === 'Mental') {
@@ -78,7 +81,7 @@ const History = ({ userData }) => {
 		},
 		categories: [
 			{
-				category: responseDates
+				category: graphDates,
 			},
 		],
 		dataset: [
@@ -88,11 +91,11 @@ const History = ({ userData }) => {
 			},
 			{
 				seriesname: 'Physical',
-				data: physicalData
+				data: physicalData,
 			},
 			{
 				seriesname: 'Emotional',
-				data: emotionalData
+				data: emotionalData,
 			},
 		],
 	};
@@ -104,14 +107,14 @@ const History = ({ userData }) => {
 	return (
 		<HistoryWrapper>
 			<ChartContainer>
-			<ReactFusioncharts
-				type='msline'
-				width='100%'
-				height='60%'
-				dataFormat='JSON'
-				dataSource={dataSource}
+				<ReactFusioncharts
+					type='msline'
+					width='100%'
+					height='60%'
+					dataFormat='JSON'
+					dataSource={dataSource}
 				/>
-				</ChartContainer>
+			</ChartContainer>
 		</HistoryWrapper>
 	);
 };

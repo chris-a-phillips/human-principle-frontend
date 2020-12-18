@@ -6,6 +6,7 @@ export const LoginPage = styled.div`
 	place-items: center;
 	height: 100%;
 	width: 100%;
+	color: #7a0c3e;
 `;
 
 export const LoginForm = styled.form`
