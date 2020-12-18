@@ -16,7 +16,9 @@ function App() {
 	const logout = () => {
 		setUser('')
 		setToken('')
-		const logoutURL = 'http://localhost:8000/token/logout/';
+		// const logoutURL = 'http://localhost:8000/token/logout/';
+		const logoutURL =
+			'https://human-principle-backend.herokuapp.com/token/logout/';
 
 		axios({
 			method: 'post',

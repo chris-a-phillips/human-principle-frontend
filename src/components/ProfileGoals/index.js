@@ -20,7 +20,8 @@ const Goals = ({ token }) => {
         id: '',
     }]);
     const [showModal, setShowModal] = useState(false)
-    const goalsURL = 'http://localhost:8000/goals/';
+    // const goalsURL = 'http://localhost:8000/goals/';
+    const goalsURL = 'https://human-principle-backend.herokuapp.com/goals/';
     
     const refreshComponent = () => {
         axios({
@@ -46,7 +47,8 @@ const Goals = ({ token }) => {
 		}).then((res) => {
 			setGoalData(res.data);
 		});
-    }, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();

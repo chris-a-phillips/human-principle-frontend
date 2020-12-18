@@ -6,7 +6,9 @@ const axios = require('axios');
 
 const Profile = ({ token, user }) => {
 	const [userData, setUserData] = useState('');
-	const principleURL = 'http://localhost:8000/principles/';
+	// const principleURL = 'http://localhost:8000/principles/';
+	const principleURL =
+		'https://human-principle-backend.herokuapp.com/principles/';
 
 	useEffect(() => {
 		axios({
@@ -16,9 +18,10 @@ const Profile = ({ token, user }) => {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
-			setUserData(res.data)
+			setUserData(res.data);
 		});
-		}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 
     return (
