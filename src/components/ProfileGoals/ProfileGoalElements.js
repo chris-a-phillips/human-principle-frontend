@@ -4,7 +4,8 @@ export const GoalSectionWrapper = styled.div`
 `
 
 export const GoalWrapper = styled.div`
-background-color: rgba(0,0,0, 0.25);
+	background-color: rgba(0,0,0, 0.25);
+	margin: 15px;
 `;
 
 export const GoalsModal = styled.div`
