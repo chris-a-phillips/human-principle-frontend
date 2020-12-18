@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from 'react';
-import { ProfileCard, ProfileH1, ProfileH2, ProfileH3, ProfileImgContainer, ProfileInfoWrapper, ProfileWhiteSpace } from './ProfileInfoElements';
+import { ProfileCard, ProfileH1, ProfileH2, ProfileH3, ProfileImgContainer, ProfileInfoWrapper } from './ProfileInfoElements';
 import axios from 'axios'
+import Goals from '../ProfileGoals';
 
-const ProfileInfo = ({ token }) => {
+const ProfileInfo = ({ token, user }) => {
     const [userProfile, setUserProfile] = useState({
         name: "",
         email: "",
@@ -37,7 +38,7 @@ const ProfileInfo = ({ token }) => {
                 <ProfileH3>Department: {userProfile.Department}</ProfileH3>
                 <ProfileH3>Team: {userProfile.team}</ProfileH3>
             </ProfileCard>
-            <ProfileWhiteSpace></ProfileWhiteSpace>
+            <Goals token={token} user={user}/>
 		</ProfileInfoWrapper>
 	);
 };
