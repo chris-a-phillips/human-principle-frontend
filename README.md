@@ -57,8 +57,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is an app focused on keeping track of how people are doing. While their is a lot of focus on professional producivity and work, not enough thought is put into the personal side of a person. This app was inspired by the current landscape of remote working.
-After a person makes an account they will be able to answer questions about how they feel mentally, physically, and emotionally. This app will keep track of averages of those responses and the user will be able to see a chart of the results.
+This is an app focused on keeping track of how people are doing and the goals they have for themselves. While there is a lot of focus on professional producivity and work, not enough thought is put into the personal side of a person. This app was inspired by the current landscape of remote working.
+After a person makes an account they will be able to answer questions about how they feel mentally, physically, and emotionally. This app will keep track of averages of those responses and the user will be able to see a chart of the results. Users can also create goals for themselves and add them to their profile.
+Admin users will be able to see all of the questionnaire averages and goals of the team they belong to.
 
 ### Built With
 
@@ -96,9 +97,9 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
- <img src="./src/images/homepage.png" alt="Human Principle" width="300" height="300">
+ <img src="./src/images/landing-page.png" alt="Human Principle" width="300" height="300">
  <img src="./src/images/profile-page.png" alt="Human Principle" width="300" height="300">
- <img src="./src/images/questionnaire-form.png" alt="Human Principle" width="300" height="300">
+ <img src="./src/images/question-page.png" alt="Human Principle" width="300" height="300">
 
 Users have the ability to track themselves over a long period of time and submit as many questionnaires as they would like.
 As of now this app is for personal use. In the future it will be expanded for teams and supervisors to use together.
