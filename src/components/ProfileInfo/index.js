@@ -6,9 +6,7 @@ import Goals from '../ProfileGoals';
 const ProfileInfo = ({ token, user }) => {
     const [userProfile, setUserProfile] = useState({
         name: "",
-        email: "",
-    	team: "",
-        department: "",
+        email: ""
     });
     const personalURL = 'http://localhost:8000/users/me/';
 
@@ -33,10 +31,8 @@ const ProfileInfo = ({ token, user }) => {
 		<ProfileInfoWrapper>
             <ProfileImgContainer></ProfileImgContainer>
             <ProfileCard>
-                <ProfileH1>Name: {userProfile.name}</ProfileH1>
-                <ProfileH2>Email: {userProfile.email}</ProfileH2>
-                <ProfileH3>Department: {userProfile.Department}</ProfileH3>
-                <ProfileH3>Team: {userProfile.team}</ProfileH3>
+                <ProfileH1>Name:<br/>{userProfile.name}</ProfileH1>
+                <ProfileH2>Email:<br/>{userProfile.email}</ProfileH2>
             </ProfileCard>
             <Goals token={token} user={user}/>
 		</ProfileInfoWrapper>
