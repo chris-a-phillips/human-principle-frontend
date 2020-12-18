@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/chris-a-phillips/human-principle-frontend">
-    <img src="./src/images/human-principle.gif" alt="Human Principle" width="300" height="300">
+    <img src="./src/images/human-principle.gif" alt="Human Principle" width="1200" height="900">
     <br/>
   </a>
     <a href="https://github.com/chris-a-phillips/human-principle-frontend/blob/main/README.md"><strong>Explore the docs »</strong></a>
