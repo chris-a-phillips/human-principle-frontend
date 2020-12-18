@@ -20,8 +20,10 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 		password: '',
 		re_password: '',
 	});
-	const signUpURL = 'http://localhost:8000/users/';
-	const signInURL = 'http://localhost:8000/token/login';
+	// const signUpURL = 'http://localhost:8000/users/';
+	// const signInURL = 'http://localhost:8000/token/login';
+	const signUpURL = 'https://human-principle-backend.herokuapp.com/users/';
+	const signInURL = 'https://human-principle-backend.herokuapp.com/login';
 
 	const handleChange = (event) => {
 		event.preventDefault();

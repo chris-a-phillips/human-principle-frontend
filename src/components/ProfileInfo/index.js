@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { ProfileCard, ProfileH1, ProfileH2, ProfileH3, ProfileImgContainer, ProfileInfoWrapper } from './ProfileInfoElements';
+import { ProfileCard, ProfileH1, ProfileH2, ProfileImgContainer, ProfileInfoWrapper } from './ProfileInfoElements';
 import axios from 'axios'
 import Goals from '../ProfileGoals';
 
@@ -8,9 +8,11 @@ const ProfileInfo = ({ token, user }) => {
         name: "",
         email: ""
     });
-    const personalURL = 'http://localhost:8000/users/me/';
+    // const personalURL = 'http://localhost:8000/users/me/';
+    const personalURL =
+		'https://human-principle-backend.herokuapp.com/users/me/';
 
-    useEffect(() => {	
+    useEffect(() => {
 		axios({
 			method: 'get',
 			url: personalURL,
@@ -25,7 +27,8 @@ const ProfileInfo = ({ token, user }) => {
 				department: res.data.department,
 			});
 		});
-    }, [])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
     return (
 		<ProfileInfoWrapper>
