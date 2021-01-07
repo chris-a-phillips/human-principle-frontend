@@ -7,16 +7,18 @@ import { Footer, FooterLink, FooterSection, FooterText, Header, LogoutButton, Ma
 import Profile from './pages/Profile';
 import axios from 'axios'
 import Landing from './pages/Landing';
+import { APIURL } from './config.js'
 
 function App() {
 	const [user, setUser] = useState('');
 	const [token, setToken] = useState('');
 	const [newUser, setNewUser] = useState(false);
+	console.log(APIURL)
 
 	const logout = () => {
 		setUser('')
 		setToken('')
-		const logoutURL = 'http://localhost:8000/token/logout/';
+		const logoutURL = `${APIURL}/token/logout/`;
 
 		axios({
 			method: 'post',

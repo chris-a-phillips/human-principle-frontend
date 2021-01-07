@@ -11,6 +11,7 @@ import {
 	FormInput,
 	FormHeader
 } from './QuestionsElements.js';
+import { APIURL } from '../../config'
 
 const QuestionForm = ({
 	token,
@@ -35,7 +36,7 @@ const QuestionForm = ({
 		question_seven: 0,
 	});
 
-	const url = 'http://localhost:8000/principles/';
+	const url = `${APIURL}/principles/`;
 
 	const handleChange = (event) => {
 		setResponse({ ...response, [event.target.name]: event.target.value });

@@ -2,11 +2,13 @@ import { React, useState, useEffect} from 'react';
 import History from '../../components/History';
 import ProfileInfo from '../../components/ProfileInfo';
 import { ProfileWrapper } from './ProfileElements';
-const axios = require('axios');
+import axios from 'axios'
+import { APIURL } from '../../config';
+
 
 const Profile = ({ token, user }) => {
 	const [userData, setUserData] = useState('');
-	const principleURL = 'http://localhost:8000/principles/';
+	const principleURL = `${APIURL}/principles/`;
 
 	useEffect(() => {
 		axios({

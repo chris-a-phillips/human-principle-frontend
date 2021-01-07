@@ -24,7 +24,3 @@ export const ProfileH1 = styled.h1`
 export const ProfileH2 = styled.h1`
 	padding: 15px 30px;
 `
-
-export const ProfileH3 = styled.h3`
-	padding: 15px 30px;
-`

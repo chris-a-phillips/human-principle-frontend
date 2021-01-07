@@ -10,6 +10,7 @@ import {
 	LoginPageButton,
 	SubmitButton,
 } from './LoginElements';
+import { APIURL } from '../../config';
 
 const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 	const [redirect, setRedirect] = useState(false);
@@ -20,8 +21,8 @@ const Login = ({ setUser, setToken, newUser, setNewUser }) => {
 		password: '',
 		re_password: '',
 	});
-	const signUpURL = 'http://localhost:8000/users/';
-	const signInURL = 'http://localhost:8000/token/login';
+	const signUpURL = `${APIURL}/users/`;
+	const signInURL = `${APIURL}/token/login`;
 
 	const handleChange = (event) => {
 		event.preventDefault();

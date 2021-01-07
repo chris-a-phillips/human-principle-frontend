@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios'
 import { GoalButton, GoalP, GoalsModal, GoalWrapper, GoalSectionWrapper, ModalForm, ModalHeader, ModalInput, ModalLabel, ModalSelect, ModalSubmit } from './ProfileGoalElements';
+import { APIURL } from '../../config';
 
 const Goals = ({ token }) => {
 	const [goalData, setGoalData] = useState([{
@@ -20,7 +21,7 @@ const Goals = ({ token }) => {
         id: '',
     }]);
     const [showModal, setShowModal] = useState(false)
-    const goalsURL = 'http://localhost:8000/goals/';
+    const goalsURL = `${APIURL}/goals/`;
     
     const refreshComponent = () => {
         axios({
