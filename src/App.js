@@ -13,7 +13,6 @@ function App() {
 	const [user, setUser] = useState('');
 	const [token, setToken] = useState('');
 	const [newUser, setNewUser] = useState(false);
-	console.log(APIURL)
 
 	const logout = () => {
 		setUser('')

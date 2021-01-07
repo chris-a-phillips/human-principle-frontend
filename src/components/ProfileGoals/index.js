@@ -23,17 +23,17 @@ const Goals = ({ token }) => {
     const [showModal, setShowModal] = useState(false)
     const goalsURL = `${APIURL}/goals/`;
     
-    const refreshComponent = () => {
-        axios({
-            method: 'get',
-            url: goalsURL,
-            headers: {
-                Authorization: `Token ${token}`,
-            },
-        }).then((res) => {
-            setGoalData(res.data);
-        });
-    }
+    // const refreshComponent = () => {
+    //     axios({
+    //         method: 'get',
+    //         url: goalsURL,
+    //         headers: {
+    //             Authorization: `Token ${token}`,
+    //         },
+    //     }).then((res) => {
+    //         setGoalData(res.data);
+    //     });
+    // }
 
 
 
@@ -47,7 +47,7 @@ const Goals = ({ token }) => {
 		}).then((res) => {
 			setGoalData(res.data);
 		});
-    }, []);
+    }, [goalData]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -58,11 +58,10 @@ const Goals = ({ token }) => {
 				Authorization: `Token ${token}`,
 			},
 			data: newGoal,
-		}).then((
-                setShowModal(!showModal),
-                refreshComponent()
-            ))
-        refreshComponent()
+		})
+		.then(
+			setShowModal(!showModal)
+		)
     };
     
     const handleDelete = (value) => {
@@ -73,8 +72,7 @@ const Goals = ({ token }) => {
                 Authorization: `Token ${token}`,
             },
             data: goalData.key,
-        }).then(refreshComponent())
-        refreshComponent()
+		})
     };
 
     const handleChange = (event) => {
