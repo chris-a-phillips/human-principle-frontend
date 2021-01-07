@@ -22,20 +22,6 @@ const Goals = ({ token }) => {
     }]);
     const [showModal, setShowModal] = useState(false)
     const goalsURL = `${APIURL}/goals/`;
-    
-    // const refreshComponent = () => {
-    //     axios({
-    //         method: 'get',
-    //         url: goalsURL,
-    //         headers: {
-    //             Authorization: `Token ${token}`,
-    //         },
-    //     }).then((res) => {
-    //         setGoalData(res.data);
-    //     });
-    // }
-
-
 
 	useEffect(() => {
 		axios({
@@ -47,7 +33,7 @@ const Goals = ({ token }) => {
 		}).then((res) => {
 			setGoalData(res.data);
 		});
-    }, [goalData]);
+    }, [goalData, goalsURL, token]);
 
     const handleSubmit = (event) => {
         event.preventDefault();

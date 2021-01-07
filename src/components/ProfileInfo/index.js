@@ -12,7 +12,7 @@ const ProfileInfo = ({ token, user }) => {
     });
     const personalURL = `${APIURL}/users/me/`;
 
-    useEffect(() => {	
+    useEffect(() => {
 		axios({
 			method: 'get',
 			url: personalURL,
@@ -27,7 +27,8 @@ const ProfileInfo = ({ token, user }) => {
 				department: res.data.department,
 			});
 		});
-    }, [])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
     return (
 		<ProfileInfoWrapper>

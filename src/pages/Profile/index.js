@@ -18,9 +18,10 @@ const Profile = ({ token, user }) => {
 				Authorization: `Token ${token}`,
 			},
 		}).then((res) => {
-			setUserData(res.data)
+			setUserData(res.data);
 		});
-		}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 
     return (
