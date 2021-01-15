@@ -97,9 +97,20 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
- <img src="./src/images/landing-page.png" alt="Human Principle" width="400" height="300">
- <img src="./src/images/profile-page.png" alt="Human Principle" width="400" height="300">
- <img src="./src/images/question-page.png" alt="Human Principle" width="400" height="300">
+ <img src="./src/images/landing-page.png" alt="landing-page" width="400" height="300">
+ 
+ Landing Page
+ 
+ 
+ <img src="./src/images/profile-page.png" alt="profile-page" width="400" height="300">
+ 
+ Profile Page
+ 
+ 
+ <img src="./src/images/question-page.png" alt="question-page" width="400" height="300">
+ 
+ Question Page
+ 
 
 Users have the ability to track themselves over a long period of time and submit as many questionnaires as they would like.
 As of now this app is for personal use. In the future it will be expanded for teams and supervisors to use together.
