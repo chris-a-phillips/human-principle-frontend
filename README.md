@@ -141,7 +141,8 @@ There are many features that can still be added to this app. Any contributions y
 <!-- CONTACT -->
 ## Contact
 
-Chris Phillips - [Github](https://github.com/chris-a-phillips) - phillipsachris@gmail.com
+
+Chris Phillips - [Chris Phillips LinkedIn](https://www.linkedin.com/in/chris-a-phillips/) - phillipsachris@gmail.com
 
 Project Link: [https://github.com/chris-a-phillips/human-principle-frontend](https://github.com/chris-a-phillips/human-principle-frontend)
 
